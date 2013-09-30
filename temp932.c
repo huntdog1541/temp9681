@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <unistd.h>
 #include <string.h>
 
@@ -8,6 +9,7 @@ int main(int argc, char ** argv)
 {
 	
 	pid_t pid;
+	int status;
 	
 	const unsigned int MAX_LEN = 35;
 	char *cmd[MAX_LEN];
@@ -29,7 +31,10 @@ int main(int argc, char ** argv)
 	}
 	
 	while(wait(&status) != pid)
+	{
+}
 	
+	printf("Parent found process %d is done\n", pid);
 	
 	return 0;
 }
